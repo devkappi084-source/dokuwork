@@ -1,10 +1,11 @@
-import { Clock, FolderOpen, Receipt, CreditCard } from 'lucide-react'
+import { Clock, FolderOpen, Receipt, CreditCard, Settings } from 'lucide-react'
 
 const NAV = [
   { key: 'timer',    label: 'Zeiterfassung', icon: Clock },
   { key: 'projects', label: 'Projekte',      icon: FolderOpen },
   { key: 'expenses', label: 'Spesen',        icon: CreditCard },
   { key: 'invoices', label: 'Rechnungen',    icon: Receipt },
+  { key: 'settings', label: 'Einstellungen', icon: Settings },
 ]
 
 export default function Layout({ page, setPage, children }) {

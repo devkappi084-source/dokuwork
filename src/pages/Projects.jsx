@@ -3,14 +3,16 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../db'
 import { Plus, Pencil, Trash2, X, Check } from 'lucide-react'
 import { formatMoney } from '../utils/format'
+import { loadSettings } from '../utils/settings'
 
 const COLORS = ['#2563eb','#16a34a','#dc2626','#d97706','#7c3aed','#0891b2','#be185d','#65a30d']
 
 function ProjectForm({ initial, onSave, onCancel }) {
+  const settings = loadSettings()
   const [name, setName] = useState(initial?.name || '')
   const [color, setColor] = useState(initial?.color || COLORS[0])
-  const [hourlyRate, setHourlyRate] = useState(initial?.hourlyRate ?? 80)
-  const [kmRate, setKmRate] = useState(initial?.kmRate ?? 0.42)
+  const [hourlyRate, setHourlyRate] = useState(initial?.hourlyRate ?? settings.defaultHourlyRate)
+  const [kmRate, setKmRate] = useState(initial?.kmRate ?? settings.defaultKmRate)
 
   function submit(e) {
     e.preventDefault()
